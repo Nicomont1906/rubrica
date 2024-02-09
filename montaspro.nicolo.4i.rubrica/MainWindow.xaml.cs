@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -41,7 +41,8 @@ namespace montaspro.nicolo._4i.rubrica
                 }
                 dgPersone.ItemsSource = Persone;
 
-                statusbar.Text = $"Ho letto dal file {Persone.Count} righe";
+                statusbar.Text = $"Ho letto dal file {Persone.Count} persone";
+                fin.Close();
 
                 StreamReader fine = new StreamReader("contatti.csv");
                 fine.ReadLine();
@@ -51,7 +52,8 @@ namespace montaspro.nicolo._4i.rubrica
                     Contatto contatto = new Contatto(rigaC);
                     Contatti.Add(contatto);
                 }
-                dgContatti.ItemsSource = Contatti;
+               // dgContatti.ItemsSource = Contatti;
+
             }
 
             catch (Exception ex)
@@ -62,14 +64,22 @@ namespace montaspro.nicolo._4i.rubrica
         private void dgDati_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Persona p = e.AddedItems[0] as Persona;
-            statusbar.Text = $"{p.cognome}";
+            if (p != null)
+            {
+                statusbar.Text = $" Hai selezionato {p.nome} {p.cognome}";
 
-            List<Contatto> contattiFiltrati = new List<Contatto>();
-            foreach (var item in Contatti)
-                if (item.IdPersona == p.IdPersona)
-                    contattiFiltrati.Add(item);
+                List<Contatto> contattiFiltrati = new List<Contatto>();
+                foreach (var item in Contatti)
+                    if (item.IdPersona == p.IdPersona)
+                        contattiFiltrati.Add(item);
 
-            dgContatti.ItemsSource = contattiFiltrati;
+                dgContatti.ItemsSource = contattiFiltrati;
+            }
+
+        }
+
+        private void dgContatti_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
     }
