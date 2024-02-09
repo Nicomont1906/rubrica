@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +20,8 @@ namespace montaspro.nicolo._4i.rubrica
         public Contatto(string riga)
         {
             string[] campi = riga.Split(';');
+
+        
 
             int Id = 0;
             int.TryParse(campi[0], out Id);
