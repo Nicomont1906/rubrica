@@ -1,4 +1,4 @@
-﻿<Window x:Class="montaspro.nicolo._4i.rubrica.MainWindow"
+<Window x:Class="montaspro.nicolo._4i.rubrica.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -32,8 +32,7 @@
             </DataGrid>
             <TextBlock x:Name="statusbar" Grid.Row="2"></TextBlock>
         </Grid>
-        <DataGrid x:Name="dgContatti"
-                  Grid.Column="1">
+        <DataGrid x:Name="dgContatti" SelectionChanged="dgContatti_SelectionChanged" Grid.Column="1">
         </DataGrid>
     </Grid>
 </Window>
