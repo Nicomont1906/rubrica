@@ -5,6 +5,7 @@ Realizzare un programma che visualizza due griglie; una con un elenco di persone
 - prevedere due classi: "Persona" e "Contatto"
 - prevedere due file: "persone.csv" e "contatti.csv
 - prevedere due griglie che visualizzano il contenuto dei due file
+- prevedere la funzionalità che, selezionando una Persona nel datagrid "Persone", il sistema visualizza tutti i suoi contatti.
 
 
 La classe persona è costituita da tre attributi (IdPersona,nome,cognomre) e un costruttore che viene utilizzato per creare un un'istanza della classe fornendo una stringa contenente i dati della persona separati da un punto e virgola, presumibilmente nell'ordine ID, nome e cognome
