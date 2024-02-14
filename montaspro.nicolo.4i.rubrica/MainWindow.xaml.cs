@@ -20,9 +20,9 @@ namespace montaspro.nicolo._4i.rubrica
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window 
-    { 
-        List<Persona> Persone = new List<Persona>();
-        List<Contatto> Contatti = new List<Contatto>();
+    {
+        Persone Persone;
+        Contatti contatti;
         public MainWindow()
         {
             InitializeComponent();
@@ -31,28 +31,17 @@ namespace montaspro.nicolo._4i.rubrica
         {
             try
             {
-                StreamReader fin = new StreamReader("persone.csv");
-                fin.ReadLine();
-                while (!fin.EndOfStream)
-                {
-                    string rigaP = fin.ReadLine();
-                    Persona persona = new Persona(rigaP);
-                    Persone.Add(persona);
-                }
+               
+                Persone = new ("persone.csv");
                 dgPersone.ItemsSource = Persone;
 
                 statusbar.Text = $"Ho letto dal file {Persone.Count} persone";
-                fin.Close();
 
-                StreamReader fine = new StreamReader("contatti.csv");
-                fine.ReadLine();
-                while (!fine.EndOfStream)
-                {
-                    string rigaC = fine.ReadLine();
-                    Contatto contatto = new Contatto(rigaC);
-                    Contatti.Add(contatto);
-                }
-               // dgContatti.ItemsSource = Contatti;
+
+                contatti = new("contatti.csv");
+                statusbar.Text = $"Ho letto dal file" +
+                     $"{Persone.Count} persone e " +
+                     $"{contatti.Count} contatti";
 
             }
 
@@ -68,14 +57,29 @@ namespace montaspro.nicolo._4i.rubrica
             {
                 statusbar.Text = $" Hai selezionato {p.nome} {p.cognome}";
 
-                List<Contatto> contattiFiltrati = new List<Contatto>();
-                foreach (var item in Contatti)
+                Contatti contattiFiltrati = new();
+                foreach (var item in contatti)
                     if (item.IdPersona == p.IdPersona)
                         contattiFiltrati.Add(item);
 
                 dgContatti.ItemsSource = contattiFiltrati;
             }
 
+        }
+
+        private void AdOgniRiga(object sender , DataGridRowEventArgs e) { 
+
+            Persona p = e.Row.Item as Persona;
+            if(p != null)
+            {
+                if(p.IdPersona == 1)
+                {
+                    e.Row.Background = Brushes.Red;
+                    e.Row.Foreground = Brushes.White;
+                }
+                
+            }
+        
         }
 
         private void dgContatti_SelectionChanged(object sender, SelectionChangedEventArgs e)
