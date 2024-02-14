@@ -28,11 +28,12 @@
 
             <DataGrid x:Name = "dgPersone"
                       Grid.Row="1"
-                      SelectionChanged="dgDati_SelectionChanged">
+                      LoadingRow="AdOgniRiga"
+                      SelectionChanged="dgDati_SelectionChanged" CanUserAddRows="False" CanUserDeleteRows="False">
             </DataGrid>
             <TextBlock x:Name="statusbar" Grid.Row="2"></TextBlock>
         </Grid>
-        <DataGrid x:Name="dgContatti" SelectionChanged="dgContatti_SelectionChanged" Grid.Column="1">
+        <DataGrid x:Name="dgContatti" SelectionChanged="dgContatti_SelectionChanged" Grid.Column="1" CanUserDeleteRows="False" CanUserAddRows="False">
         </DataGrid>
     </Grid>
 </Window>
