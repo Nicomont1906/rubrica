@@ -137,7 +137,13 @@ Dopo aver studiato L'ereditarietà e il Polimorfismo siamo riusciti a creare due
         }
     }
 ```
-In tutte e due le classi andiamo a creare un construttore vuoto e un costruttore che riceveva come paramentro il nomeFile e grazie allo StramReader legge cosa c'è all'interno del file e una volta arrivato alla fine lo chiude.
+ In tutte e due le classi derivate scriviamo un  costruttore vuoto Persone(),per inizializzare una nuova istanza di Persone.
+Il costruttore Persone(string nomeFile) accetta il percorso del file come argomento.
+Inizia aprendo il file specificato nomeFile utilizzando un oggetto StreamReader.
+Salta la prima riga del file leggendo la riga seguente (fin.ReadLine()).
+Attraversa il resto del file finché non raggiunge la fine (!fin.EndOfStream).
+Per ogni riga successiva, crea un nuovo oggetto Persona utilizzando il costruttore Persona(string) e lo aggiunge alla lista Persone utilizzando il metodo Add().
+Infine, chiude lo StreamReader (fin.Close()).
 
 Infine siamo andati ad aggiungere altre classi derivate come ContattoWeb, Contatto Telefono....
 
