@@ -6,6 +6,12 @@ Realizzare un programma che visualizza due griglie; una con un elenco di persone
 - prevedere due file: "persone.csv" e "contatti.csv
 - prevedere due griglie che visualizzano il contenuto dei due file
 - prevedere la funzionalità che, selezionando una Persona nel datagrid "Persone", il sistema visualizza tutti i suoi contatti.
+- abbia una classe Persone che deriva da List<Persona>
+- abbia una classe Contatti che deriva da List<Contatto>
+- utilizzi la classe Contatto come base
+- abbia una serie di classi derivate ContattoEmail, ContattoWeb etc etc
+- utilizzi i costruttori di Persone e Contatti per leggere i rispettivi file
+
 
 
 La classe persona è costituita da tre attributi (IdPersona,nome,cognomre) e un costruttore che viene utilizzato per creare un un'istanza della classe fornendo una stringa contenente i dati della persona separati da un punto e virgola, presumibilmente nell'ordine ID, nome e cognome
@@ -113,3 +119,39 @@ E infine Il metodo dgDati_SelectionChanged viene chiamato quando la selezione ne
 
         }
 ```
+Dopo aver studiato L'ereditarietà e il Polimorfismo siamo riusciti a creare due classi Persone e Contatti che derivano da List<Persona> e da List<Contatto>
+```
+ public class Persone : List<Persona>
+    {
+        public Persone() { }
+
+        public Persone (string nomeFile)
+        {
+            StreamReader fin = new StreamReader(nomeFile);
+            fin.ReadLine();
+            while (!fin.EndOfStream)
+            
+                Add(new Persona(fin.ReadLine()));
+
+            fin.Close();
+        }
+    }
+```
+In tutte e due le classi andiamo a creare un construttore vuoto e un costruttore che riceveva come paramentro il nomeFile e grazie allo StramReader legge cosa c'è all'interno del file e una volta arrivato alla fine chiude il file. 
+
+Infine siamo andati ad aggiungere altre classi derivate come ContattoWeb, Contatto Telefono....
+
+```
+ public class ContattoEmail: Contatto
+    {
+        public ContattoEmail() { }
+
+        public ContattoEmail(string riga)
+            : base(riga)
+        {
+
+        }
+    }
+```
+Ogni classe derivata avrà un costruttore vuoto e un costruttore che accetta come parametro una riga.
+
