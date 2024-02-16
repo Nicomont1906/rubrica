@@ -137,7 +137,7 @@ Dopo aver studiato L'ereditarietà e il Polimorfismo siamo riusciti a creare due
         }
     }
 ```
-In tutte e due le classi andiamo a creare un construttore vuoto e un costruttore che riceveva come paramentro il nomeFile e grazie allo StramReader legge cosa c'è all'interno del file e una volta arrivato alla fine chiude il file. 
+In tutte e due le classi andiamo a creare un construttore vuoto e un costruttore che riceveva come paramentro il nomeFile e grazie allo StramReader legge cosa c'è all'interno del file e una volta arrivato alla fine lo chiude.
 
 Infine siamo andati ad aggiungere altre classi derivate come ContattoWeb, Contatto Telefono....
 
