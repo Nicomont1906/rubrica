@@ -67,6 +67,65 @@ namespace montaspro.nicolo._4i.rubrica
         }
     }
 
+    public class ContattoTelefono : Contatto {
+        
+        public ContattoTelefono() { }
+
+        public ContattoTelefono (string riga)
+            : base(riga)
+        {
+
+        }
+    
+    }
+
+    public class ContattoWeb : Contatto
+    {
+        public ContattoWeb() { }
+
+        public ContattoWeb (string riga)
+            : base(riga)
+        { 
+            
+        }
+    }
+
+    public class ContattoInstagram : Contatto
+    {
+        public ContattoInstagram() { }
+
+        public ContattoInstagram(string riga)
+            : base(riga)
+        {
+
+        }
+    }
+
+    public class ContattoFacebook : Contatto { 
+            
+        public ContattoFacebook() { }
+
+        public ContattoFacebook(string riga)
+            : base(riga)
+        {
+
+        }
+    
+    }
+
+    public class ContattoCellulare : Contatto
+    {
+        public ContattoCellulare() { }
+
+        public ContattoCellulare(string riga)
+            : base(riga)
+        {
+
+        }
+    }
+
+
+
     public class Contatti : List<Contatto>
     {
         public Contatti() { }
